@@ -58,6 +58,7 @@ TreeTopFinder <- function(CHM, winFun, minHeight = NULL, maxCells = 2000000, max
 
     # Get maximum and minimum values
     CHM.max <- max(sapply(CHM, function(tile) suppressWarnings(max(raster::getValues(tile), na.rm = TRUE))))
+    print(CHM.max)
     CHM.min <- min(sapply(CHM, function(tile) suppressWarnings(min(raster::getValues(tile), na.rm = TRUE))))
     if(is.infinite(CHM.max) | is.infinite(CHM.min)){stop("Input CHM does not contain any usable values. Check input data or lower minimum canopy height.")}
     if(!is.null(minHeight)){
